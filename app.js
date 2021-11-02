@@ -9,6 +9,14 @@ const app=Vue.createApp({
             monsterHealth:100
         };
     },
+    computed:{
+        monsterbarstyle(){
+            return{width: monsterHealth + '%'};
+        },
+        playerbarstyle(){
+            return{width:  playerHealth  + '%'}
+        }
+    },
     methods:{
         attackMonster(){
            const attackValue=getrandomValue(5,12);
@@ -18,6 +26,11 @@ const app=Vue.createApp({
         attackplayer(){
             const attackValue=getrandomValue(8,15);
             this.playerHealth-=attackValue;
+        },
+        specialattackmonster(){
+            const attackValue=getrandomValue(10,25);
+            this.monsterHealth-=attackValue;
+            this.attackplayer();
         }
     }
 });
