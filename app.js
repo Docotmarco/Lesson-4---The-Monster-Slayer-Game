@@ -24,7 +24,7 @@ const app = Vue.createApp({
             }
         },
         monsterHealth(value){
-            if(value <=0 && this.playerHealth <=0){
+            if(value <=0 && this.playerHealth <= 0){
                 //draw
                 this.winner="Draw";
             }else if(value <=0){
@@ -75,7 +75,7 @@ const app = Vue.createApp({
             this.currentRound++;
             const attackValue=getrandomValue(10,25);
             this.monsterHealth-=attackValue;
-            this.addlogMessage('Player','attack',attackValue);
+            this.addlogMessage('Player','Special_attack',attackValue);
             this.attackPlayer();
         },
         healPLayer(){
@@ -92,7 +92,7 @@ const app = Vue.createApp({
         surrender(){
            this.winner='Monster';
         },
-        addlogMessage(who,what,value){
+        addlogMessage(who, what , value){
             this.logmessages.unshift({
                 actionBy:who,
                 actionType:what,

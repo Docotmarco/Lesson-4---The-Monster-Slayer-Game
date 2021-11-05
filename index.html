@@ -42,15 +42,28 @@
         <button :disabled="mayuseSpecialAttack" @click=" specialAttackmonster()">SPECIAL ATTACK</button>
         <button @click="healPLayer()">HEAL</button>
         <button @click="surrender()">SURRENDER</button>
-
-        
       </section>
+
       <section id="log" class="container">
         <h2>Battle Log</h2>
         <ul>
           <li v-for="logmessage in logmessages">
+           <span 
+           :class="{'log--player':logmessage.actionBy === 'PLayer' , 'log--monster':logmessage.actionBy === 'Monster'}"
+           >{{logmessage.actionBy === 'player' ? 'Monster' : 'PLayer'}}</span>
            
-          </li>
+           <span v-if="logmessage.actionType === 'heal'">
+              Heals Himself for 
+              <span class="log--heal">{{ logmessage.actionValue}}</span></span>
+           <span v-else>
+             Attacks and Deals 
+             <span class="log--damage">{{ logmessage.actionValue}}</span></span>
+           </span>
+         
+           <!-- {{logmessage.actionBy}}-{{logmessage.actionType}}-{{logmessage.actionValue}}
+
+          </li
+          >
         </ul>
       </section>
     </div>
