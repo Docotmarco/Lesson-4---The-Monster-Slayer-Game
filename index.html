@@ -49,18 +49,21 @@
         <ul>
           <li v-for="logmessage in logmessages">
            <span 
-           :class="{'log--player':logmessage.actionBy === 'PLayer' , 'log--monster':logmessage.actionBy === 'Monster'}"
-           >{{logmessage.actionBy === 'player' ? 'Monster' : 'PLayer'}}</span>
+           :class ="{'log--player':logmessage.actionBy ==='PLayer' , 'log--monster':logmessage.actionBy ==='Monster'}">
+           {{logmessage.actionBy==='Player' ? 'Player' :'Monster'}}
+           </span>
            
            <span v-if="logmessage.actionType === 'heal'">
               Heals Himself for 
-              <span class="log--heal">{{ logmessage.actionValue}}</span></span>
+              <span class="log--heal">{{ logmessage.actionValue}}</span>
+            </span>
            <span v-else>
              Attacks and Deals 
-             <span class="log--damage">{{ logmessage.actionValue}}</span></span>
+             <span class="log--damage">{{ logmessage.actionValue}}</span>
+            </span>
+
            </span>
-         
-           <!-- {{logmessage.actionBy}}-{{logmessage.actionType}}-{{logmessage.actionValue}}
+                    <!-- {{logmessage.actionBy}}-{{logmessage.actionType}}-{{logmessage.actionValue}} -->
 
           </li
           >
